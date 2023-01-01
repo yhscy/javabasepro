@@ -5,11 +5,13 @@ package cc.yhscy.d2_polymorphic_advantage;
  */
 public class Test {
     public static void main(String[] args) {
-        Dog g = new Dog();
-        go(g);
+        Animal A = new Dog();
+        go(A);
+//        A.lookDoor(); //多态不能调用子类的独有方法；
 
         Tortoise t = new Tortoise();
-       go(t);
+        go(t);
+
 
 
     }

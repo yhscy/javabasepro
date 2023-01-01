@@ -1,4 +1,4 @@
-package cc.yhscy.d2_polymorphic_advantage;
+package cc.yhscy.d3_polymorphic_convert;
 
 /**
  * Created by yhsec on 2023/1/1 16:23

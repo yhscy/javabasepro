@@ -7,7 +7,7 @@ public interface Animal {
     //默认方法
     default void run(){
         System.out.println("会跑");
-        go();
+//        go();
     }
 
 
@@ -19,8 +19,8 @@ public interface Animal {
 
 
     //私有方法 - jdk 1.9以上版本支持接口私有方法
-    private void go(){
-        System.out.println("会跑");
-    }
+//    private void go(){
+//        System.out.println("会跑");
+//    }
 
 }
