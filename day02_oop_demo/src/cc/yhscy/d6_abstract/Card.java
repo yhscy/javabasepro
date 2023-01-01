@@ -1,4 +1,4 @@
-package d6_abstract;
+package cc.yhscy.d6_abstract;
 
 /**
  * Created by yhsec on 2022/12/29 21:32

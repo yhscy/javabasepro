@@ -1,4 +1,4 @@
-package d7_abstract_template;
+package cc.yhscy.d7_abstract_template;
 
 /**
  * Created by yhsec on 2022/12/29 22:05
