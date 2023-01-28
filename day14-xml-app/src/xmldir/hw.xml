@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- 根标签有且只能有一个-->
+<person>
+    <name>shichun</name>
+    <sex>man</sex>
+    <age>32</age>
+    <hobby>
+        <ball>篮球</ball>
+    </hobby>
+</person>
