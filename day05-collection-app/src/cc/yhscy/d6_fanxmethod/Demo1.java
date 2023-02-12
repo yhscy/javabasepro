@@ -16,7 +16,7 @@ public class Demo1 {
     public static <T> void show(T[] e){
         if (e != null){
             StringBuilder sb = new StringBuilder("[");
-            //for each 不支持索引
+            //for each 没法判断索引位置
             for (int i = 0; i < e.length ; i++) {
                 sb.append(e[i]).append(i == e.length - 1 ? "]" : ", ");
             }

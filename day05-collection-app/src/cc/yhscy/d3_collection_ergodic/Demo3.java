@@ -1,5 +1,7 @@
 package cc.yhscy.d3_collection_ergodic;
 
+import javax.crypto.spec.PSource;
+import javax.swing.plaf.synth.SynthEditorPaneUI;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.function.Consumer;
@@ -24,11 +26,12 @@ public class Demo3 {
 //        });
 
         //简化写法
-        c.forEach(s -> {
-            System.out.println(s);
-        });
-
-
+//        c.forEach(s -> {
+//            System.out.println(s);
+//        });
+//        c.forEach(s -> System.out.println(s));
+        //新技术：方法引用
+        c.forEach(System.out::println);
         };
 
     }
