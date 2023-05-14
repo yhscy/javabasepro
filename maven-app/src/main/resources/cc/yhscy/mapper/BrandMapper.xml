@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cc.yhscy.mapper.BrandMapper">
+
+<!--    方式一：slq片段，但不灵活-->
+<!--    <sql id="brand_colum">-->
+<!--        id,brand_name as brandName,company_name as companyName,ordered,description,status-->
+<!--    </sql>-->
+<!--    <select id="selectAll" resultType="Brand">-->
+<!--        select-->
+<!--        <include refid="brand_colum"></include>-->
+<!--         from tb_brand;-->
+<!--    </select>-->
+
+    <resultMap id="brandResultMap" type="Brand">
+        <result column="brand_name" property="brandName"/>
+        <result column="company_name" property="companyName"/>
+    </resultMap>
+    <insert id="add" useGeneratedKeys="true" keyProperty="id">
+        insert into tb_brand(brand_name,company_name,ordered,description,status)
+        values (#{brandName},#{companyName},#{ordered},#{description},#{status})
+    </insert>
+<!--    mybatis会将数组参数封装为了一个mao集合，-->
+<!--    默认是：array = array-->
+<!--    也可以使用功能：@Param注解改变map集合的默认key的名称-->
+    <delete id="delByIds">
+        delete from tb_brand where id in
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="selectAll" resultMap="brandResultMap">
+        select * from tb_brand
+    </select>
+
+
+    <select id="selectByIdBrand" resultMap="brandResultMap">
+
+<!--        select * from tb_brand where id < ${id};使用转义或CDATA区-->
+        select * from tb_brand where id <![CDATA[
+        <
+        ]]> ${id};
+
+
+    </select>
+
+    <select id="selectByCondition" resultMap="brandResultMap">
+        select * from tb_brand
+        <where>
+            <if test="status != null">status = #{status}
+            </if>
+            <if test="companyName != null and companyName != ''">
+                and company_name like #{companyName}
+            </if>
+            <if test="brandName != null and brandName != ''">
+                and brand_name like #{brandName}
+            </if>
+
+        </where>
+
+    </select>
+    <select id="selectByCondtionSingle" resultMap="brandResultMap">
+        select * from tb_brand
+        <where>
+            <choose>
+                <when test="status != null">
+                    status = #{status}
+                </when>
+                <when test="companyName != null and companyName != ''">
+                    company_name like #{companyName}
+                </when>
+                <when test="brandName != null and brandName != ''">
+                    brand_name like #{brandName}
+                </when>
+            </choose>
+
+        </where>
+    </select>
+
+
+
+</mapper>
