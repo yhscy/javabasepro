@@ -75,5 +75,6 @@ public class Brand {
                 ", description='" + description + '\'' +
                 ", status=" + status +
                 '}';
+
     }
 }
